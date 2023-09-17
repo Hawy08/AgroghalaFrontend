@@ -7,15 +7,20 @@ import {
 import Registrationform from "./Components/Registrationform";
 import Navbar from "./SemiComponents/Navbar";
 import Home from "./Components/Home";
+import Login from "./Components/Login";
+import Feedback from "./Components/Feedback";
+import Ghalas from "./Components/Ghalas";
+import Blogspage from "./Components/Blogspage";
+import Sokopage from "./Components/Sokopage";
 
 export const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/register", element: <Registrationform /> },
-  { path: "/login", element: <div>"Hello login"</div> },
-  { path: "/feedback", element: <div>"Hello feedback"</div> },
-  { path: "/ghalas", element: <div>"Hello ghalas"</div> },
-  { path: "/blogs", element: <div>"Hello blogs"</div> },
-  { path: "/soko", element: <div>"Hello soko"</div> },
+  { path: "/login", element: <Login/> },
+  { path: "/feedback", element: <Feedback/> },
+  { path: "/ghalas", element: <Ghalas/> },
+  { path: "/blogs", element: <Blogspage/> },
+  { path: "/soko", element: <Sokopage/> },
 ]);
 
 function App() {

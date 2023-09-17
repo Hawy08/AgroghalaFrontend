@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Missionvission from "./Missionvission";
 import CustomizedAccordions from "./Accorion";
-import Blogs from "./Blogs";
+import Blogs from "./Blogsreview";
 
 function Home() {
   return (
