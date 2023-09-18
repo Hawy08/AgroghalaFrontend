@@ -7,7 +7,7 @@ function Sokopreview() {
     <div>
       <div>
         <p className="text-2xl ">Soko</p>
-        <p>
+        <p className="text-sm">
           Find out the prices of various commodities at our storage facilities.
           Get also to sell your products at Market friendly prices.
         </p>

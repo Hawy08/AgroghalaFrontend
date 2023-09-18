@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="px-10">
+    <div className="md:px-10">
         <Navbar />
       <RouterProvider router={router}>
         <Routes>

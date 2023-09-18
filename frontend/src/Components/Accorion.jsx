@@ -49,9 +49,9 @@ export default function CustomizedAccordions() {
   };
 
   return (
-    <div className="px-28 mx-20 ">
+    <div className="md:px-28 md:mx-20 m-4">
       <div className="  flex justify-center p-4 mb-8">
-        <p className="font-thin text-5xl">Why Choose AgroGhala?</p>
+        <p className="font-thin md:text-5xl text-3xl">Why Choose AgroGhala?</p>
       </div>
       <Accordion
         expanded={expanded === "panel1"}

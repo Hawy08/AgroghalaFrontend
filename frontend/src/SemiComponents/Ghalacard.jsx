@@ -4,14 +4,14 @@ import image1 from "../assets/Warehousing-system.jpg";
 
 function Ghalacard() {
   return (
-    <div className="flex gap-10 shadow-2xl p-2 rounded-xl">
-      <div className="w-1/2">
-        <img src={image1} alt="warehouse" className="h-full rounded-2xl" />
+    <div className="md:flex gap-10 shadow-2xl p-2 rounded-xl">
+      <div className="md:w-1/2">
+        <img src={image1} alt="warehouse" className="h-full md:rounded-2xl" />
       </div>
       <div>
         <BasicRating />
         <div>
-          <p className="text-2xl ">NCPB Narok</p>
+          <p className="md:text-2xl ">NCPB Narok</p>
           <p>Narok</p>
           <p className="text-[#23CE6B]">Ksh. 200 per bag</p>
           <p className="font-thin">

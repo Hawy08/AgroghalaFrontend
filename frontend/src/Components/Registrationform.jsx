@@ -32,12 +32,12 @@ const Registrationform = () => {
       });
   };
   return (
-    <div className="h-screen flex justify-center items-center ">
-      <div className="flex  p-12 rounded-2xl shadow-lg">
-        <div className="w-1/2 ">
+    <div className="h-screen md:flex justify-center items-center ">
+      <div className="md:flex md:p-12 rounded-2xl shadow-lg">
+        <div className="md:w-1/2 ">
           <Formside />
         </div>
-        <div className="  rounded-tr-2xl  rounded-br-2xl px-10 w-1/2">
+        <div className="  rounded-tr-2xl  rounded-br-2xl md:px-10 md:w-1/2 px-4">
           <h1 className="text-4xl font-thin mb-4 ">Register</h1>
           <Formik
             initialValues={initialValues}

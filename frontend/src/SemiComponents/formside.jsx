@@ -2,7 +2,7 @@ import React from "react";
 
 function Formside() {
   return (
-    <div className="bg-[#23CE6B] text-white p-12 rounded-tl-2xl  rounded-bl-2xl font-thin h-full">
+    <div className="bg-[#23CE6B] text-white md:p-12 p-4 md:rounded-tl-2xl  md:rounded-bl-2xl font-thin h-full">
       <p className="font-bold mb-10">Keep fresh Produce safe with AgroGhala.</p>
       <p className="mb-10">
         Join over 4.5 million farmers who are ready to safeguard their produce .
