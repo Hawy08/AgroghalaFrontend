@@ -12,6 +12,11 @@ import Feedback from "./Components/Feedback";
 import Ghalas from "./Components/Ghalas";
 import Blogspage from "./Components/Blogspage";
 import Sokopage from "./Components/Sokopage";
+import Logout from "./Components/logout";
+import Assistant from "./Components/assistant"
+import Blogs from "./Components/bloglist";
+import SingleBlog from "./Components/blogdetail";
+import EditBlog from "./Components/blogedit";
 
 export const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -21,12 +26,17 @@ export const router = createBrowserRouter([
   { path: "/ghalas", element: <Ghalas/> },
   { path: "/blogs", element: <Blogspage/> },
   { path: "/soko", element: <Sokopage/> },
+  { path: "/logout", element: <Logout/> },
+  { path: "/blog", element: <Blogs />},
+  { path: "/blogs/:id", element: <SingleBlog />},
+  { path: "/blogs/:id/edit", element: <EditBlog />}
 ]);
 
 function App() {
   return (
     <div className="px-10">
         <Navbar />
+        <Assistant />
       <RouterProvider router={router}>
         <Routes>
           <Route element={router} />
