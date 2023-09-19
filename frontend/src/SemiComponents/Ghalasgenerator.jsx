@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import Ghalascard from "./Ghalacard";
 import axios from "axios";
 
-function Ghalasgenerator() {
+function Ghalasgenerator(props) {
   const [ghala, setghala] = useState([]);
+  
   useEffect(() => {
     axios
       .get("http://16.170.231.209:8000/api/ghala/")
@@ -27,6 +28,7 @@ function Ghalasgenerator() {
           phone={item.phone_number}
           open={item.opening_time}
           close={item.closing_time}
+          handleOpen={props.handleOpen}
         />
       ))}
     </div>

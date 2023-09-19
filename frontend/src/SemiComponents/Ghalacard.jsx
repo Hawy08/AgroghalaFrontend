@@ -24,7 +24,10 @@ function Ghalacard(props) {
               {props.open}-{props.close}
             </span>
           </p>
-          <button className="bg-[#23CE6B] p-2 my-2 text-white rounded-2xl ">
+          <button
+            className="bg-[#23CE6B] p-2 my-2 text-white rounded-2xl"
+            onClick={props.handleOpen}
+          >
             Rent Ghala
           </button>
         </div>
