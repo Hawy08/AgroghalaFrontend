@@ -64,7 +64,8 @@ export default function CustomizedAccordions() {
         </div>
         <AccordionDetails>
           <p className="font-thin text-lg">
-           Since we connect numerous warehouses, we have unlimited grain storage space for your commodities.
+            Since we connect numerous warehouses, we have unlimited grain
+            storage space for your commodities.
           </p>
         </AccordionDetails>
       </Accordion>
@@ -79,7 +80,8 @@ export default function CustomizedAccordions() {
         </div>
         <AccordionDetails>
           <p className="font-thin text-lg">
-            Agroghala strives to offer plenty of storage at affordable prices thus making it accessible to farmers of all income.
+            Agroghala strives to offer plenty of storage at affordable prices
+            thus making it accessible to farmers of all income.
           </p>
         </AccordionDetails>
       </Accordion>
@@ -94,7 +96,8 @@ export default function CustomizedAccordions() {
         </div>
         <AccordionDetails>
           <p className="font-thin text-lg">
-             The Ghalas on Agroghala are always next to you hence very accessible.
+            The Ghalas on Agroghala are always next to you hence very
+            accessible.
           </p>
         </AccordionDetails>
       </Accordion>
