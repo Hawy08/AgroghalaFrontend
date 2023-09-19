@@ -174,6 +174,21 @@ const Registrationform = () => {
                   onChange={handleChange}
                 />
                 <ErrorMessage
+                  name="phone_number"
+                  component="div"
+                  className="text-red-500"
+                />                <Field
+                  name="address"
+                  placeholder="Address"
+                  className={`p-3 rounded-lg outline-none border w-full ${
+                    errors.address && touched.address
+                      ? 'border-red-500'
+                      : 'border-gray-300 focus:border-green-500'
+                  }`}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                />
+                <ErrorMessage
                   name="address"
                   component="div"
                   className="text-red-500"

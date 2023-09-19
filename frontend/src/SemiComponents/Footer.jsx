@@ -4,8 +4,8 @@ import React from "react";
 function Footer() {
   
   return (
-    <div className="bg-[#23CE6B] w-full md:p-20 text-white text-sm my-4">
-      <div className="grid grid-cols-3">
+    <div className="bg-[#23CE6B] w-full md:p-20 text-white text-sm md:my-4 p-4">
+      <div className="md:grid grid-cols-3 flex flex-col gap-2 ">
         <div>
           <p>Youtube</p>
           <p>Twitter</p>
