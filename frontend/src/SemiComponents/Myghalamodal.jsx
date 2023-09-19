@@ -4,6 +4,7 @@ import Modal from "@mui/material/Modal";
 import FloatingActionButtons from "./Floatingbtn";
 import axiosInstance from "../axios";
 import { useEffect, useState } from "react";
+import { format } from "date-fns";
 
 const style = {
   position: "relative",
@@ -52,7 +53,9 @@ export default function MyghalaModal(props) {
               <div className="shadow-md p-2 my-4 rounded-sm bg-white">
                 <p>Ghala:{item.ghala}</p>
                 <p>Bags Stored:{item.bags_stored}</p>
-                <p>Date Rented:{item.date_rented}</p>
+                <p>
+                  Date Rented:{format(new Date(item.date_rented), "MM/dd/yyyy")}
+                </p>
                 <p>Duration:{item.duration_of_storage}</p>
               </div>
             </div>
