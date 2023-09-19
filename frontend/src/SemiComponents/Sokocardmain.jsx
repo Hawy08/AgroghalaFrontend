@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "../assets/Rectangle 29.png"
+import Image from "../assets/Rectangle 29.png";
 
 function Mainblogscard(props) {
   return (
@@ -11,7 +11,7 @@ function Mainblogscard(props) {
         <span className="font-thin">12Kg Sold|400Kg Available</span>
         <p className="text-4xl ">Wheat</p>
         <p>Ksh. 2000</p>
-        <button className="bg-[#23CE6B] px-8 py-1 my-12 text-white rounded-2xl  " onClick={props.handleOpen}>Sell</button>
+        {/* <button className="bg-[#23CE6B] px-8 py-1 my-12 text-white rounded-2xl  " onClick={props.handleOpen}>Sell</button> */}
       </div>
     </div>
   );
