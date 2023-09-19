@@ -17,6 +17,7 @@ import Assistant from "./Components/assistant"
 import Blogs from "./Components/bloglist";
 import SingleBlog from "./Components/blogdetail";
 import EditBlog from "./Components/blogedit";
+import CreateBlog from "./Components/blogcreate";
 
 export const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -29,7 +30,8 @@ export const router = createBrowserRouter([
   { path: "/logout", element: <Logout/> },
   { path: "/blog", element: <Blogs />},
   { path: "/blogs/:id", element: <SingleBlog />},
-  { path: "/blogs/:id/edit", element: <EditBlog />}
+  { path: "/blogs/:id/edit", element: <EditBlog />},
+  { path: "/blog/create", element: <CreateBlog />},
 ]);
 
 function App() {

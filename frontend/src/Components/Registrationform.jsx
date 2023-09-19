@@ -40,17 +40,12 @@ const Registrationform = () => {
   };
 
   return (
-  <div className="min-h-screen flex justify-center items-center px-4 sm:px-6 lg:px-8">
-  <div className="border-2 bborder-green-500 p-4 shadow-green-300 shadow-md rounded-md px-8">
+  <div className="min-h-screen flex justify-center items-center lg:px-4 sm:px-1 ">
+  <div className="border-2 border-green-500 p-4 shadow-green-300 shadow-md rounded-md lg:px-8 sm:px-4">
   <div className="text-3xl font-bold ">
-      <p className="">
+      <p className="mt-6 text-center text-3xl border-b-2 pb-2 border-green-500 font-medium text-gray-900">
         Agro<span className="text-[#23CE6B]">Ghala.</span>
       </p>
-    </div>
-    <div>
-      <h2 className="mt-6 text-center text-3xl border-1 border-bottom font-medium text-gray-900">
-        Register
-      </h2>
     </div>
     <div className="grid gid-cols-2 gap 4">
       <Formik
@@ -90,7 +85,7 @@ const Registrationform = () => {
       >
         {({ isSubmitting, errors, touched, handleChange, handleBlur }) => (
           <Form className="mt-8 space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="lg:grid lg:grid-cols-2 gap-4">
               <div>
                 <Field
                   name="first_name"
@@ -147,7 +142,7 @@ const Registrationform = () => {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="lg:grid lg:grid-cols-2 lg:gap-4 sm:grid-cols-1">
               <div>
                 <Field
                   name="phone_number"

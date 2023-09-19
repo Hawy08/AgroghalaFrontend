@@ -4,16 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 function LoginForm() {
-  const [formData, setFormData] = useState({
+  const [formData] = useState({
     email: '',
     password: '',
   });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-
-  const handleInputChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
-  };
 
   const handleLogin = async (values, { setSubmitting }) => {
     try {
@@ -40,17 +36,12 @@ function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center px-4 sm:px-6 lg:px-8">
-      <div className="border-2 border-green-500 p-4 shadow-green-300 shadow-md rounded-md px-8 sm:w-4/5">
+    <div className="min-h-screen flex justify-center items-center lg:px-4 sm:px-1">
+      <div className="border-2 border-green-500 p-4 shadow-green-300 shadow-md rounded-md lg:px-8 sm:px-4 lg:w-2/5">
         <div className="text-3xl font-bold">
-          <p className="">
+          <p className="mt-6 text-center text-3xl border-b-2 pb-2 border-green-500 font-medium text-gray-900">
             Agro<span className="text-[#23CE6B]">Ghala.</span>
           </p>
-        </div>
-        <div>
-          <h2 className="mt-6 text-center text-3xl border-1 border-bottom font-medium text-gray-900">
-            Login
-          </h2>
         </div>
         <Formik
           initialValues={formData}
