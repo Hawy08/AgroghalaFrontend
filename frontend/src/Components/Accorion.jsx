@@ -64,10 +64,7 @@ export default function CustomizedAccordions() {
         </div>
         <AccordionDetails>
           <p className="font-thin text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+           Since we connect numerous warehouses, we have unlimited grain storage space for your commodities.
           </p>
         </AccordionDetails>
       </Accordion>
@@ -82,10 +79,7 @@ export default function CustomizedAccordions() {
         </div>
         <AccordionDetails>
           <p className="font-thin text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+            Agroghala strives to offer plenty of storage at affordable prices thus making it accessible to farmers of all income.
           </p>
         </AccordionDetails>
       </Accordion>
@@ -100,10 +94,7 @@ export default function CustomizedAccordions() {
         </div>
         <AccordionDetails>
           <p className="font-thin text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+             The Ghalas on Agroghala are always next to you hence very accessible.
           </p>
         </AccordionDetails>
       </Accordion>
