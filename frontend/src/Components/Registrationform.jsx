@@ -48,7 +48,7 @@ const Registrationform = () => {
   const handleSubmit = (values) => {
     const authOptions = {
       method: "post",
-      url: "http://localhost:8000/api/user/create/",
+      url: "http://16.170.231.209:8000/api/user/create/",
       data: values,
       headers: {
         "Content-Type": "application/json",
