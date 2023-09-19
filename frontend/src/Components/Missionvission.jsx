@@ -9,9 +9,7 @@ function Missionvission() {
         <div className=" md:p-28 ">
           <p className="font-thin text-4xl mb-8">Our Vission</p>
           <p className="font-thin text-xl mb-8">
-            To offer the best storage solutions to Kenyans at affordable prices
-            reducing post harvest loss significantly to fight food insecurity in
-            kenya.
+            To be leading in grain storage solutions. Championing a food secure Africa by 2030.
           </p>
         </div>
       </div>

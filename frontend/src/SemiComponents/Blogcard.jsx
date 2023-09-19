@@ -18,11 +18,10 @@ export default function ActionAreaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            Agroghala and Food Insecurity
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            For the past one year Agroghala has been at the fore-front of fighting food security in Kenya and Subsaharan Africa.
           </Typography>
         </CardContent>
       </CardActionArea>
