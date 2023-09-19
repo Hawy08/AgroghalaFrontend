@@ -16,9 +16,6 @@ function Header() {
           </button>
         </Link>
       </div>
-      <div className=" flex justify-center items-center mb-20">
-        <img src={lady} alt="lady" className="w-full " />
-      </div>
     </div>
   );
 }
