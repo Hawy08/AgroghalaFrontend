@@ -3,7 +3,7 @@ import Ghalasgenerator from "../SemiComponents/Ghalasgenerator";
 import Sokopreview from "../SemiComponents/Sokopreview";
 import Blogspreview from "../SemiComponents/Blogspreview";
 import GhalaModal from "../SemiComponents/Ghalacheckout";
-
+import MyghalaModal from "../SemiComponents/Myghalamodal";
 function Ghalas() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -12,6 +12,7 @@ function Ghalas() {
     <div>
       <div className="flex">
         <div className="w-2/3">
+          <MyghalaModal />
           <Ghalasgenerator handleOpen={handleOpen} />
           <GhalaModal
             open={open}

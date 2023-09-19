@@ -1,6 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage  } from "formik";
 import Modal from "@mui/material/Modal";
 
 const style = {
@@ -16,11 +16,22 @@ const style = {
 };
 
 export default function GhalaModal(props) {
+  const [totalPrice, setTotalPrice] = React.useState(null);
   const initialValues = {
     commodity: "",
     quantity: "",
     period: "",
   };
+  const totalGhalaPrice = (values) => {
+    console.log(values);
+    const ghalaUnitRentPrice = 200;
+    const period = Number(values.period);
+    const quantity = Number(values.quantity);
+    const pricePayable = period * quantity * ghalaUnitRentPrice;
+    console.log(pricePayable);
+    return pricePayable;
+  };
+
   return (
     <div>
       <Modal
@@ -34,15 +45,21 @@ export default function GhalaModal(props) {
             <Formik
               initialValues={initialValues}
               onSubmit={(values, { setSubmitting, resetForm }) => {
+                const totalPrice = totalGhalaPrice(values);
+                setTotalPrice(totalPrice);
                 console.log(values);
+                totalGhalaPrice(values);
                 setSubmitting(false);
                 resetForm();
               }}
             >
               {({ isSubmitting }) => (
                 <Form className="flex flex-col gap-8">
+                  <div>
+                    <p className="text-xl">Price: {totalPrice} </p>
+                  </div>
                   <Field
-                    name=" commodity"
+                    name="commodity"
                     placeholder=" Commodity"
                     className="p-2 rounded-lg outline-none border"
                   />
