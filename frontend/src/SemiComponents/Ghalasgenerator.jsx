@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Ghalascard from "./Ghalacard";
-import axios from "axios";
+import axiosInstance from "../axios";
 
 function Ghalasgenerator(props) {
   const [ghala, setghala] = useState([]);
   
   useEffect(() => {
-    axios
+    axiosInstance
       .get("http://16.170.231.209:8000/api/ghala/")
       .then((res) => {
         const data = res.data;
@@ -18,7 +18,7 @@ function Ghalasgenerator(props) {
   }, []);
 
   return (
-    <div className="flex flex-col gap-8 my-16">
+    <div className="grid grid-cols-3 gap-8 my-16">
       {ghala.map((item) => (
         <Ghalascard
           image={item.images}

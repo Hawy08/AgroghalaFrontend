@@ -3,8 +3,8 @@ import BasicRating from "./Ratings";
 
 function Ghalacard(props) {
   return (
-    <div className="md:flex gap-10 shadow-2xl p-2 rounded-xl">
-      <div className="md:w-1/2">
+    <div className="flex flex-col gap-10 shadow-2xl p-2 rounded-xl">
+      <div className="">
         <img
           src={props.image}
           alt="warehouse"
