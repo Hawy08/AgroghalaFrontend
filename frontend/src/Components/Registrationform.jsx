@@ -1,115 +1,244 @@
-// Render Prop
-import React from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import Formside from "../SemiComponents/formside";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import AxiosInstance from '../axios'
+
+
 const Registrationform = () => {
   const initialValues = {
     email: "",
+    phone_number: "",
+    first_name: "",
+    last_name: "",
+    address: "",
     password: "",
-    phone: "",
-    firstname: "",
-    lastname: "",
-    location: "",
+    confirm_password: ""
   };
-  const handleSubmit = (values) => {
-    const authOptions = {
-      method: "post",
-      url: "http://localhost:8000/api/user/create/",
-      data: values,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      json: true,
-    };
-    axios(authOptions)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  };
-  return (
-    <div className="h-screen md:flex justify-center items-center ">
-      <div className="md:flex md:p-12 rounded-2xl shadow-lg">
-        <div className="md:w-1/2 ">
-          <Formside />
-        </div>
-        <div className="  rounded-tr-2xl  rounded-br-2xl md:px-10 md:w-1/2 px-4">
-          <h1 className="text-4xl font-thin mb-4 ">Register</h1>
-          <Formik
-            initialValues={initialValues}
-            onSubmit={(values, { setSubmitting, resetForm }) => {
-              console.log(values);
-              handleSubmit(values);
-              setSubmitting(false);
-              resetForm();
-            }}
-          >
-            {({ isSubmitting }) => (
-              <Form className="flex flex-col gap-8">
-                <Field
-                  name="firstname"
-                  placeholder="Firstname"
-                  className="p-2 rounded-lg outline-none border"
-                />
-                <ErrorMessage name="firstname" component="div" />
-                <Field
-                  name="lastname"
-                  placeholder="Lastname"
-                  className="p-2 rounded-lg outline-none border"
-                />
-                <ErrorMessage name="lastname" component="div" />
 
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (values) => {
+    try {
+      AxiosInstance.post('user/create/', {
+        email: values.email,
+        phone_number: values.phone_number,
+        address: values.address,
+        first_name: values.first_name,
+        last_name: values.last_name,
+        password: values.password,
+        confirm_password: values.confirm_password,
+      })
+      .then((res) => {
+        navigate("/login");
+        console.log(res);
+        console.log(res.data);
+      });
+    } catch (error) {
+      setError({ message: "Registration failed" });
+    }
+  };
+
+  return (
+  <div className="min-h-screen flex justify-center items-center lg:px-4 sm:px-1 ">
+  <div className="border-2 border-green-500 p-4 shadow-green-300 shadow-md rounded-md lg:px-8 sm:px-4">
+  <div className="text-3xl font-bold ">
+      <p className="mt-6 text-center text-3xl border-b-2 pb-2 border-green-500 font-medium text-gray-900">
+        Agro<span className="text-[#23CE6B]">Ghala.</span>
+      </p>
+    </div>
+    <div className="grid gid-cols-2 gap 4">
+      <Formik
+        initialValues={initialValues}
+        validate={(values) => {
+          const errors = {};
+
+          // Add validation logic here, e.g., check for required fields, matching passwords, etc.
+          if (!values.first_name) {
+            errors.first_name = 'First name is required';
+          }
+          if (!values.last_name) {
+            errors.last_name = 'Last name is required';
+          }
+          if (!values.email) {
+            errors.email = 'Email is required';
+          }
+          if (!values.phone_number) {
+            errors.phone_number = 'Phone number is required';
+          }
+          if (!values.address) {
+            errors.address = 'Address is required';
+          }
+          if (!values.password) {
+            errors.password = 'Password is required';
+          }
+          if (values.password !== values.confirm_password) {
+            errors.confirm_password = 'Passwords do not match';
+          }
+
+          return errors;
+        }}
+        onSubmit={(values, { setSubmitting }) => {
+          handleSubmit(values);
+          setSubmitting(false);
+        }}
+      >
+        {({ isSubmitting, errors, touched, handleChange, handleBlur }) => (
+          <Form className="mt-8 space-y-4">
+            <div className="lg:grid lg:grid-cols-2 gap-4">
+              <div>
+                <Field
+                  name="first_name"
+                  placeholder="First Name"
+                  className={`p-3 rounded-lg outline-none border w-full ${
+                    errors.first_name && touched.first_name
+                      ? 'border-red-500'
+                      : 'border-gray-300 focus:border-green-500'
+                  }`}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                />
+                <ErrorMessage
+                  name="first_name"
+                  component="div"
+                  className="text-red-500"
+                />
+              </div>
+              <div>
+                <Field
+                  name="last_name"
+                  placeholder="Last Name"
+                  className={`p-3 rounded-lg outline-none border w-full ${
+                    errors.last_name && touched.last_name
+                      ? 'border-red-500'
+                      : 'border-gray-300 focus:border-green-500'
+                  }`}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                />
+                <ErrorMessage
+                  name="last_name"
+                  component="div"
+                  className="text-red-500"
+                />
+              </div>
+              <div className="col-span-2">
                 <Field
                   type="email"
                   name="email"
                   placeholder="Email"
-                  className="p-2 rounded-lg outline-none border"
+                  className={`p-3 rounded-lg outline-none border w-full ${
+                    errors.email && touched.email
+                      ? 'border-red-500'
+                      : 'border-gray-300 focus:border-green-500'
+                  }`}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
                 />
-                <ErrorMessage name="email" component="div" />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="text-red-500"
+                />
+              </div>
+            </div>
+            <div className="lg:grid lg:grid-cols-2 lg:gap-4 sm:grid-cols-1">
+              <div>
                 <Field
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  className="p-2 rounded-lg outline-none border"
+                  name="phone_number"
+                  placeholder="Phone Number"
+                  className={`p-3 rounded-lg outline-none border w-full ${
+                    errors.phone_number && touched.phone_number
+                      ? 'border-red-500'
+                      : 'border-gray-300 focus:border-green-500'
+                  }`}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
                 />
-                <ErrorMessage name="password" component="div" />
-
+                <ErrorMessage
+                  name="phone_number"
+                  component="div"
+                  className="text-red-500"
+                />
+              </div>
+              <div>
                 <Field
-                  name="phone"
-                  placeholder="Phone"
-                  className="p-2 rounded-lg outline-none border"
+                  name="address"
+                  placeholder="Address"
+                  className={`p-3 rounded-lg outline-none border w-full ${
+                    errors.address && touched.address
+                      ? 'border-red-500'
+                      : 'border-gray-300 focus:border-green-500'
+                  }`}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
                 />
-                <ErrorMessage name="phone" component="div" />
-                <Field
-                  name="location"
-                  placeholder="Location"
-                  className="p-2 rounded-lg outline-none border"
+                <ErrorMessage
+                  name="address"
+                  component="div"
+                  className="text-red-500"
                 />
-                <ErrorMessage name="location" component="div" />
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="bg-[#23CE6B] p-2 font-semibold text-white rounded-2xl"
-                >
-                  Register
-                </button>
-                <p className="text-center">
-                  Already have an account?{" "}
-                  <Link to="/login" className="text-[#23CE6B]">
-                    Login
-                  </Link>
-                </p>
-              </Form>
+              </div>
+            </div>
+            <Field
+              type="password"
+              name="password"
+              placeholder="Password"
+              className={`p-3 rounded-lg outline-none border w-full ${
+                errors.password && touched.password
+                  ? 'border-red-500'
+                  : 'border-gray-300 focus:border-green-500'
+              }`}
+              onBlur={handleBlur}
+              onChange={handleChange}
+            />
+            <ErrorMessage
+              name="password"
+              component="div"
+              className="text-red-500"
+            />
+            <Field
+              type="password"
+              name="confirm_password"
+              placeholder="Confirm Password"
+              className={`p-3 rounded-lg outline-none border w-full ${
+                errors.confirm_password && touched.confirm_password
+                  ? 'border-red-500'
+                  : 'border-gray-300 focus:border-green-500'
+              }`}
+              onBlur={handleBlur}
+              onChange={handleChange}
+            />
+            <ErrorMessage
+              name="confirm_password"
+              component="div"
+              className="text-red-500"
+            />
+            <div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full p-3 bg-[#23CE6B] text-white font-semibold rounded-lg hover:bg-green-600"
+              >
+                Register
+              </button>
+            </div>
+            {error && (
+              <p className="text-red-500 text-center">{error.message}</p>
             )}
-          </Formik>
-        </div>
-      </div>
+            <p className="text-center">
+              Already have an account?{" "}
+              <Link to="/login" className="text-[#23CE6B]">
+                Login
+              </Link>
+            </p>
+          </Form>
+        )}
+      </Formik>
     </div>
+  </div>
+</div>
+
   );
 };
 
