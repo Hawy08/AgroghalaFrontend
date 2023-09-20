@@ -1,8 +1,10 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { Formik, Form, Field, ErrorMessage  } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import Modal from "@mui/material/Modal";
-
+import CropSelect from "./Dropdown";
+import axiosInstance from "../axios";
+import { useEffect } from "react";
 
 const style = {
   position: "absolute",
@@ -32,6 +34,35 @@ export default function GhalaModal(props) {
     console.log(pricePayable);
     return pricePayable;
   };
+  useEffect((values) => {
+    const res= axiosInstance.get("/user/me/")
+    const user_id = res.user_id
+     axiosInstance
+      .get("http://16.170.231.209:8000/api/ghala/")
+      .then((res) => {
+        const data = res.data;
+
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+       axiosInstance
+      .post("/myghalas/",{
+        user:user_id,
+        ghala:"",
+        commodity:"",
+        quantity:{values.quantity}
+
+
+      })
+
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+   
+ 
+
 
   return (
     <div>
@@ -57,14 +88,17 @@ export default function GhalaModal(props) {
               {({ isSubmitting }) => (
                 <Form className="flex flex-col gap-8">
                   <div>
+                    <p className="text-xl">{props.ghalatitle}</p>
+                    <p>{props.price}</p>
                     <p className="text-xl">Price: {totalPrice} </p>
                   </div>
-                  <Field
+                  {/* <Field
                     name="commodity"
                     placeholder=" Commodity"
                     className="p-2 rounded-lg outline-none border"
                   />
-                  <ErrorMessage name=" commodity" component="div" />
+                  <ErrorMessage name=" commodity" component="div" /> */}
+                  <CropSelect />
                   <Field
                     name="quantity"
                     type="Number"

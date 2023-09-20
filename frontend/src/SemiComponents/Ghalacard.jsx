@@ -1,5 +1,5 @@
 import React from "react";
-import BasicRating from "./Ratings";
+// import BasicRating from "./Ratings";
 
 function Ghalacard(props) {
   return (
@@ -12,7 +12,7 @@ function Ghalacard(props) {
         />
       </div>
       <div>
-        <BasicRating />
+        {/* <BasicRating /> */}
         <div>
           <p className="md:text-2xl ">{props.name}</p>
           <p>{props.address}</p>
@@ -26,7 +26,7 @@ function Ghalacard(props) {
           </p>
           <button
             className="bg-[#23CE6B] p-2 my-2 text-white rounded-2xl"
-            onClick={props.handleOpen}
+            onClick={props.handleBuyClick}
           >
             Rent Ghala
           </button>
